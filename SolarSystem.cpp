@@ -16,7 +16,7 @@ SolarSystem::SolarSystem(sf::Vector2u space_size) {
     spaceObjects.push_back(new Neptune(8.f, sun, 270.f));
 
     // add background stars in system
-    for (int i = 0; i < 60; ++i) {
+    for (int i = 0; i < 100; ++i) {
         spaceObjects.push_back(new Star(0.5f, sf::Vector2f((std::rand() % space_size.x), (std::rand() % space_size.y))));
     }
 }

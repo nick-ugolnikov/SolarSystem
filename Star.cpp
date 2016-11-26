@@ -8,6 +8,7 @@ Star::Star(float radius, sf::Vector2f position) {
     this->setPosition(position);
     p_alpha = 0;
     p_flag = true;
+    p_cd = 0;
 }
 
 Star::~Star() {
@@ -15,6 +16,12 @@ Star::~Star() {
 }
 
 void Star::update(sf::Time elapsed) {
+    p_cd += elapsed.asMilliseconds();
+    if (p_cd < 10)
+        return;
+    else
+        p_cd = 0;
+
     if (p_flag) {
         p_alpha += std::rand() % 2;
         if (p_alpha > 250) {

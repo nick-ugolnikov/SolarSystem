@@ -7,6 +7,7 @@ class Star : public SpaceObject {
 private:
     sf::Uint8 p_alpha;
     bool p_flag;
+    sf::Int32 p_cd;
 
 public:
     Star(float radius, sf::Vector2f position);

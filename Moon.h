@@ -1,15 +1,15 @@
 #ifndef SOLARSYSTEM_MOON_H
 #define SOLARSYSTEM_MOON_H
 
-#include "SpaceObject.h"
+#include "AbstractSpaceObject.h"
 
-class Moon : public SpaceObject {
+class Moon : public AbstractSpaceObject {
 private:
     float p_phi;
 
 public:
-    Moon(float radius, SpaceObject* earth, float radius_of_orbit);
-    ~Moon();
+    Moon(float radius, AbstractSpaceObject* earth, float radius_of_orbit);
+    ~Moon() {};
 
     void update(sf::Time elapsed);
 

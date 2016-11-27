@@ -1,12 +1,12 @@
 #ifndef SOLARSYSTEM_SUN_H
 #define SOLARSYSTEM_SUN_H
 
-#include "SpaceObject.h"
+#include "AbstractSpaceObject.h"
 
-class Sun : public SpaceObject {
+class Sun : public AbstractSpaceObject {
 public:
     Sun(float radius, sf::Vector2f position);
-    ~Sun();
+    ~Sun() {};
 
     void update(sf::Time elapsed);
 

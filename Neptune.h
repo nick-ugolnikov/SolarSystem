@@ -1,15 +1,15 @@
 #ifndef SOLARSYSTEM_NEPTUNE_H
 #define SOLARSYSTEM_NEPTUNE_H
 
-#include "SpaceObject.h"
+#include "AbstractSpaceObject.h"
 
-class Neptune : public SpaceObject {
+class Neptune : public AbstractSpaceObject {
 private:
     float p_phi;
 
 public:
-    Neptune(float radius, SpaceObject* sun, float radius_of_orbit);
-    ~Neptune();
+    Neptune(float radius, AbstractSpaceObject* sun, float radius_of_orbit);
+    ~Neptune() {};
 
     void update(sf::Time elapsed);
 

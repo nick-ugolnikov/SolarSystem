@@ -1,6 +1,6 @@
 #include "Moon.h"
 
-Moon::Moon(float radius, SpaceObject *earth, float radius_of_orbit) {
+Moon::Moon(float radius, AbstractSpaceObject *earth, float radius_of_orbit) {
     this->setParent(earth);
     this->setRadius(radius);
     this->setOrigin(sf::Vector2f(radius, radius));
@@ -8,11 +8,8 @@ Moon::Moon(float radius, SpaceObject *earth, float radius_of_orbit) {
     this->setOrbitCenter(earth->getPosition());
     this->setOrbitRadius(radius_of_orbit);
     this->moveOnOrbit(0.f);
+    this->setName((char *) "MOON");
     p_phi = 0.f;
-}
-
-Moon::~Moon() {
-
 }
 
 void Moon::update(sf::Time elapsed) {

@@ -1,6 +1,6 @@
 #include "Saturn.h"
 
-Saturn::Saturn(float radius, SpaceObject *sun, float radius_of_orbit) {
+Saturn::Saturn(float radius, AbstractSpaceObject *sun, float radius_of_orbit) {
     this->setParent(sun);
     this->setRadius(radius);
     this->setOrigin(sf::Vector2f(radius, radius));
@@ -8,11 +8,8 @@ Saturn::Saturn(float radius, SpaceObject *sun, float radius_of_orbit) {
     this->setOrbitCenter(sun->getPosition());
     this->setOrbitRadius(radius_of_orbit);
     this->moveOnOrbit(0.f);
+    this->setName((char *) "SATURN");
     p_phi = 0.f;
-}
-
-Saturn::~Saturn() {
-
 }
 
 void Saturn::update(sf::Time elapsed) {

@@ -1,15 +1,15 @@
 #ifndef SOLARSYSTEM_SATURN_H
 #define SOLARSYSTEM_SATURN_H
 
-#include "SpaceObject.h"
+#include "AbstractSpaceObject.h"
 
-class Saturn : public SpaceObject {
+class Saturn : public AbstractSpaceObject {
 private:
     float p_phi;
 
 public:
-    Saturn(float radius, SpaceObject* sun, float radius_of_orbit);
-    ~Saturn();
+    Saturn(float radius, AbstractSpaceObject* sun, float radius_of_orbit);
+    ~Saturn() {};
 
     void update(sf::Time elapsed);
 

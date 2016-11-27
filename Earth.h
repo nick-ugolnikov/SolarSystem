@@ -1,15 +1,15 @@
 #ifndef SOLARSYSTEM_EARTH_H
 #define SOLARSYSTEM_EARTH_H
 
-#include "SpaceObject.h"
+#include "AbstractSpaceObject.h"
 
-class Earth : public SpaceObject {
+class Earth : public AbstractSpaceObject {
 private:
     float p_phi;
 
 public:
-    Earth(float radius, SpaceObject* sun, float radius_of_orbit);
-    ~Earth();
+    Earth(float radius, AbstractSpaceObject* sun, float radius_of_orbit);
+    ~Earth() {};
 
     void update(sf::Time elapsed);
 

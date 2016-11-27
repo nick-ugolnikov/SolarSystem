@@ -1,6 +1,6 @@
 #include "Uranus.h"
 
-Uranus::Uranus(float radius, SpaceObject *sun, float radius_of_orbit) {
+Uranus::Uranus(float radius, AbstractSpaceObject *sun, float radius_of_orbit) {
     this->setParent(sun);
     this->setRadius(radius);
     this->setOrigin(sf::Vector2f(radius, radius));
@@ -8,11 +8,8 @@ Uranus::Uranus(float radius, SpaceObject *sun, float radius_of_orbit) {
     this->setOrbitCenter(sun->getPosition());
     this->setOrbitRadius(radius_of_orbit);
     this->moveOnOrbit(0.f);
+    this->setName((char *) "URANUS");
     p_phi = 0.f;
-}
-
-Uranus::~Uranus() {
-
 }
 
 void Uranus::update(sf::Time elapsed) {

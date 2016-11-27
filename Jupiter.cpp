@@ -1,6 +1,6 @@
 #include "Jupiter.h"
 
-Jupiter::Jupiter(float radius, SpaceObject *sun, float radius_of_orbit) {
+Jupiter::Jupiter(float radius, AbstractSpaceObject *sun, float radius_of_orbit) {
     this->setParent(sun);
     this->setRadius(radius);
     this->setOrigin(sf::Vector2f(radius, radius));
@@ -8,11 +8,8 @@ Jupiter::Jupiter(float radius, SpaceObject *sun, float radius_of_orbit) {
     this->setOrbitCenter(sun->getPosition());
     this->setOrbitRadius(radius_of_orbit);
     this->moveOnOrbit(0.f);
+    this->setName((char *) "JUPITER");
     p_phi = 0.f;
-}
-
-Jupiter::~Jupiter() {
-
 }
 
 void Jupiter::update(sf::Time elapsed) {

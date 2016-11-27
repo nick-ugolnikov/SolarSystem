@@ -1,7 +1,7 @@
 #ifndef SOLARSYSTEM_SOLARSYSTEM_H
 #define SOLARSYSTEM_SOLARSYSTEM_H
 
-#include "SpaceObject.h"
+#include "AbstractSpaceObject.h"
 #include "Sun.h"
 #include "Mercury.h"
 #include "Venus.h"
@@ -16,16 +16,23 @@
 
 #include <vector>
 #include <SFML/System/Time.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 
-class SolarSystem {
+class SolarSystemHandler {
 private:
-    std::vector<SpaceObject*> spaceObjects;
+    bool p_paused;
+    std::vector<AbstractSpaceObject*> spaceObjects;
 public:
-    SolarSystem(sf::Vector2u space_size);
-    ~SolarSystem();
+    SolarSystemHandler(sf::Vector2u space_size);
+    ~SolarSystemHandler();
 
+    bool isPaused();
+    void pause();
+    void resume();
     void update(sf::Time elapsed);
-    std::vector<SpaceObject*>* getSpaceObjects();
+    void draw(sf::RenderWindow *window);
+
+    AbstractSpaceObject* getSpaceObject(sf::Vector2f in_point);
 };
 
 

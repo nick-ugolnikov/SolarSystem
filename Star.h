@@ -1,9 +1,9 @@
 #ifndef SOLARSYSTEM_STAR_H
 #define SOLARSYSTEM_STAR_H
 
-#include "SpaceObject.h"
+#include "AbstractSpaceObject.h"
 
-class Star : public SpaceObject {
+class Star : public AbstractSpaceObject {
 private:
     sf::Uint8 p_alpha;
     bool p_flag;
@@ -11,7 +11,7 @@ private:
 
 public:
     Star(float radius, sf::Vector2f position);
-    ~Star();
+    ~Star() {};
 
     void update(sf::Time elapsed);
 

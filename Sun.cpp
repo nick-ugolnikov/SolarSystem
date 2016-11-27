@@ -5,10 +5,7 @@ Sun::Sun(float radius, sf::Vector2f position) {
     this->setOrigin(sf::Vector2f(radius, radius));
     this->setPosition(position);
     this->setColor(sf::Color::Yellow);
-}
-
-Sun::~Sun() {
-
+    this->setName((char *) "SUN");
 }
 
 void Sun::update(sf::Time elapsed) {

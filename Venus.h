@@ -1,15 +1,15 @@
 #ifndef SOLARSYSTEM_VENUS_H
 #define SOLARSYSTEM_VENUS_H
 
-#include "SpaceObject.h"
+#include "AbstractSpaceObject.h"
 
-class Venus : public SpaceObject {
+class Venus : public AbstractSpaceObject {
 private:
     float p_phi;
 
 public:
-    Venus(float radius, SpaceObject* sun, float radius_of_orbit);
-    ~Venus();
+    Venus(float radius, AbstractSpaceObject* sun, float radius_of_orbit);
+    ~Venus() {};
 
     void update(sf::Time elapsed);
 

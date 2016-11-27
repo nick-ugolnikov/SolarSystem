@@ -1,6 +1,6 @@
 #include "Mars.h"
 
-Mars::Mars(float radius, SpaceObject *sun, float radius_of_orbit) {
+Mars::Mars(float radius, AbstractSpaceObject *sun, float radius_of_orbit) {
     this->setParent(sun);
     this->setRadius(radius);
     this->setOrigin(sf::Vector2f(radius, radius));
@@ -8,11 +8,8 @@ Mars::Mars(float radius, SpaceObject *sun, float radius_of_orbit) {
     this->setOrbitCenter(sun->getPosition());
     this->setOrbitRadius(radius_of_orbit);
     this->moveOnOrbit(0.f);
+    this->setName((char *) "MARS");
     p_phi = 0.f;
-}
-
-Mars::~Mars() {
-
 }
 
 void Mars::update(sf::Time elapsed) {

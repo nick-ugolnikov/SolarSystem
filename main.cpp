@@ -1,18 +1,20 @@
 #include <SFML/Graphics.hpp>
 #include <stdlib.h>
 
-#include "SolarSystem.h"
+#include "Menu.h"
+#include "SolarSystemHandler.h"
 
 int main()
 {
+    std::srand(time(0));
     sf::ContextSettings settings;
     settings.antialiasingLevel = 4;
     // create the window
-    sf::RenderWindow window(sf::VideoMode(960, 540), "SolarSystem", sf::Style::Default, settings);
+    sf::RenderWindow window(sf::VideoMode(960, 540), "SolarSystemHandler", sf::Style::Default, settings);
     sf::Clock clock;
-
-    std::srand(time(0));
-    SolarSystem ss(window.getSize());
+    Menu menu(window.getSize());
+    SolarSystemHandler ss(window.getSize());
+    AbstractSpaceObject *founded;
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -20,18 +22,44 @@ int main()
         sf::Event event;
         while (window.pollEvent(event))
         {
-            // "close requested" event: we close the window
-            if (event.type == sf::Event::Closed)
-                window.close();
+            // check the type of the event...
+            switch (event.type)
+            {
+                // window closed
+                case sf::Event::Closed:
+                    window.close();
+                    break;
+
+                    // key pressed
+                case sf::Event::KeyPressed:
+                    if (event.key.code == sf::Keyboard::Space) {
+                        // space key is pressed: pause / resume
+                        ss.isPaused() ? ss.resume() : ss.pause();
+                    }
+                    break;
+
+                case sf::Event::MouseMoved:
+                    founded = ss.getSpaceObject(window.mapPixelToCoords(sf::Mouse::getPosition(window)));
+                    if (founded) {
+                        menu.setPlanetName(founded->getName());
+                    }
+                    else {
+                        menu.setPlanetName("");
+                    }
+                    break;
+
+                    // we don't process other types of events
+                default:
+                    break;
+            }
         }
 
         // clear the window with black color
         window.clear(sf::Color::Black);
 
         // draw everything here...
-        for (auto it = ss.getSpaceObjects()->begin(); it < ss.getSpaceObjects()->end(); ++it) {
-            window.draw((*it)->getShape());
-        }
+        ss.draw(&window);
+        menu.draw(&window);
 
         // end the current frame
         window.display();

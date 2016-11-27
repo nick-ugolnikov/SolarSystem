@@ -1,15 +1,15 @@
 #ifndef SOLARSYSTEM_MARS_H
 #define SOLARSYSTEM_MARS_H
 
-#include "SpaceObject.h"
+#include "AbstractSpaceObject.h"
 
-class Mars : public SpaceObject {
+class Mars : public AbstractSpaceObject {
 private:
     float p_phi;
 
 public:
-    Mars(float radius, SpaceObject* sun, float radius_of_orbit);
-    ~Mars();
+    Mars(float radius, AbstractSpaceObject* sun, float radius_of_orbit);
+    ~Mars() {};
 
     void update(sf::Time elapsed);
 

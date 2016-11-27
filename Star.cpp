@@ -11,10 +11,6 @@ Star::Star(float radius, sf::Vector2f position) {
     p_cd = 0;
 }
 
-Star::~Star() {
-
-}
-
 void Star::update(sf::Time elapsed) {
     p_cd += elapsed.asMilliseconds();
     if (p_cd < 10)

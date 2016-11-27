@@ -1,6 +1,6 @@
 #include "Neptune.h"
 
-Neptune::Neptune(float radius, SpaceObject *sun, float radius_of_orbit) {
+Neptune::Neptune(float radius, AbstractSpaceObject *sun, float radius_of_orbit) {
     this->setParent(sun);
     this->setRadius(radius);
     this->setOrigin(sf::Vector2f(radius, radius));
@@ -8,11 +8,8 @@ Neptune::Neptune(float radius, SpaceObject *sun, float radius_of_orbit) {
     this->setOrbitCenter(sun->getPosition());
     this->setOrbitRadius(radius_of_orbit);
     this->moveOnOrbit(0.f);
+    this->setName((char *) "NEPTUNE");
     p_phi = 0.f;
-}
-
-Neptune::~Neptune() {
-
 }
 
 void Neptune::update(sf::Time elapsed) {

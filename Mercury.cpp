@@ -1,6 +1,6 @@
 #include "Mercury.h"
 
-Mercury::Mercury(float radius, SpaceObject *sun, float radius_of_orbit) {
+Mercury::Mercury(float radius, AbstractSpaceObject *sun, float radius_of_orbit) {
     this->setParent(sun);
     this->setRadius(radius);
     this->setOrigin(sf::Vector2f(radius, radius));
@@ -8,11 +8,8 @@ Mercury::Mercury(float radius, SpaceObject *sun, float radius_of_orbit) {
     this->setOrbitCenter(sun->getPosition());
     this->setOrbitRadius(radius_of_orbit);
     this->moveOnOrbit(0.f);
+    this->setName((char *) "MERCURY");
     p_phi = 0.f;
-}
-
-Mercury::~Mercury() {
-
 }
 
 void Mercury::update(sf::Time elapsed) {

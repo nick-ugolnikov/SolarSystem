@@ -10,7 +10,7 @@ int main()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 4;
     // create the window
-    sf::RenderWindow window(sf::VideoMode(960, 540), "SolarSystemHandler", sf::Style::Default, settings);
+    sf::RenderWindow window(sf::VideoMode(960, 540), "SolarSystem", sf::Style::Default, settings);
     sf::Clock clock;
     Menu menu(window.getSize());
     SolarSystemHandler ss(window.getSize());

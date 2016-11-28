@@ -29,7 +29,7 @@ sf::Vector2f AbstractSpaceObject::getPosition() {
 }
 
 void AbstractSpaceObject::moveOnOrbit(float phi) {
-    float x = p_radius_of_orbit * std::cos(phi) + p_parent->getPosition().x;
+    float x = p_radius_of_orbit * 0.85f * std::cos(phi) + p_parent->getPosition().x;
     float y = p_radius_of_orbit * std::sin(phi) + p_parent->getPosition().y;
 
     shape.setPosition(sf::Vector2f(x, y));

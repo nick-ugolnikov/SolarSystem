@@ -10,6 +10,7 @@ private:
     sf::Int32 p_cd;
 
 public:
+    Star();
     Star(float radius, sf::Vector2f position);
     ~Star() {};
 

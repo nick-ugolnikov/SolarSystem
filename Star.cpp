@@ -1,14 +1,17 @@
 #include <stdlib.h>
 #include "Star.h"
 
-Star::Star(float radius, sf::Vector2f position) {
+Star::Star() : p_alpha(0), p_flag(true), p_cd(0) {
+    this->setRadius(1.f);
+    this->setOrigin(sf::Vector2f(1.f, 1.f));
+    this->setColor(sf::Color::White);
+}
+
+Star::Star(float radius, sf::Vector2f position) : p_alpha(0), p_flag(true), p_cd(0) {
     this->setRadius(radius);
     this->setOrigin(sf::Vector2f(radius, radius));
     this->setColor(sf::Color::White);
     this->setPosition(position);
-    p_alpha = 0;
-    p_flag = true;
-    p_cd = 0;
 }
 
 void Star::update(sf::Time elapsed) {

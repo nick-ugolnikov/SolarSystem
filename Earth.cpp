@@ -1,15 +1,14 @@
 #include "Earth.h"
 
-Earth::Earth(float radius, AbstractSpaceObject *sun, float radius_of_orbit) {
+Earth::Earth(float radius, AbstractSpaceObject *sun, float radius_of_orbit) : p_phi(0.f) {
     this->setParent(sun);
     this->setRadius(radius);
     this->setOrigin(sf::Vector2f(radius, radius));
     this->setColor(sf::Color(17, 86, 160));
     this->setOrbitCenter(sun->getPosition());
     this->setOrbitRadius(radius_of_orbit);
-    this->moveOnOrbit(0.f);
+    this->moveOnOrbit(p_phi);
     this->setName((char *) "EARTH");
-    p_phi = 0.f;
 }
 
 void Earth::update(sf::Time elapsed) {

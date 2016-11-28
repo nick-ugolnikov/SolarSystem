@@ -1,15 +1,15 @@
 #include "Saturn.h"
 
-Saturn::Saturn(float radius, AbstractSpaceObject *sun, float radius_of_orbit) {
+Saturn::Saturn(float radius, AbstractSpaceObject *sun, float radius_of_orbit) : p_phi(0.f) {
     this->setParent(sun);
     this->setRadius(radius);
     this->setOrigin(sf::Vector2f(radius, radius));
     this->setColor(sf::Color(168, 148, 82));
     this->setOrbitCenter(sun->getPosition());
     this->setOrbitRadius(radius_of_orbit);
-    this->moveOnOrbit(0.f);
+    this->moveOnOrbit(p_phi);
     this->setName((char *) "SATURN");
-    p_phi = 0.f;
+
     for (int i = 0; i < 200; ++i) {
         float s = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
         ringAsteroids.push_back(new Asteroid(1.f - s, this, radius + 4.f + s * 5));

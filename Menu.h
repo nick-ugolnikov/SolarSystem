@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <string>
 
 class Menu
 {
@@ -16,6 +17,7 @@ public:
     ~Menu() {};
 
     void setPlanetName(const char *name);
+    void setPlanetName(std::string *name);
 
     void draw(sf::RenderWindow *window);
 };

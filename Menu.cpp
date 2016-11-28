@@ -19,3 +19,7 @@ void Menu::setPlanetName(const char *name) {
     sf::FloatRect position = p_planet_name.getGlobalBounds();
     p_planet_name.setOrigin(sf::Vector2f(position.width / 2, position.height / 2));
 }
+
+void Menu::setPlanetName(std::string *name) {
+    this->setPlanetName(name->c_str());
+}

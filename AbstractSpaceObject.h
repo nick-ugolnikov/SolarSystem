@@ -12,7 +12,6 @@ private:
 
     std::string p_name;
     float p_radius_of_orbit;
-    sf::Vector2f p_center_of_orbit;
     AbstractSpaceObject *p_parent;
 
 public:

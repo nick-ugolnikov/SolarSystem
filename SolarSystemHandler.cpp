@@ -1,7 +1,6 @@
 #include "SolarSystemHandler.h"
 
-SolarSystemHandler::SolarSystemHandler(sf::Vector2u space_size) {
-    p_paused = false;
+SolarSystemHandler::SolarSystemHandler(sf::Vector2u space_size) : p_paused(false) {
     // create Sun
     spaceObjects.push_back(new Sun(70.f, sf::Vector2f(space_size.x / 2, space_size.y / 2)));
     AbstractSpaceObject* sun = spaceObjects.at(0);

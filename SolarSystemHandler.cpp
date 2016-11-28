@@ -13,6 +13,8 @@ SolarSystemHandler::SolarSystemHandler(sf::Vector2u space_size) {
     spaceObjects.push_back(new Mars(3.f, sun, 150.f));
     spaceObjects.push_back(new Jupiter(13.f, sun, 175.f));
     spaceObjects.push_back(new Saturn(11.f, sun, 220.f));
+    Saturn* saturn = (Saturn*)spaceObjects.at(7);
+    spaceObjects.insert(spaceObjects.end(), saturn->getAsteroids()->begin(), saturn->getAsteroids()->end());
     spaceObjects.push_back(new Uranus(9.f, sun, 250.f));
     spaceObjects.push_back(new Neptune(8.f, sun, 270.f));
 
